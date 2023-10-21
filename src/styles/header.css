@@ -1,0 +1,50 @@
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    transition: background 500ms ease-in-out 0s;
+    padding: 0 5vw;
+    height: 80px;
+}
+.header-container:hover {
+    transition: background 500ms ease-in-out 0s;
+    background: none;
+    opacity: 100%;
+}
+
+.header-signin {
+    display: flex;
+
+}
+
+.header-message {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.header-signin-svg {
+    color: #fff;
+    height: 28px;
+    width: auto;
+    margin: 0 10px -9px;
+    padding-right: 1px;
+
+}
+
+.header-cart-svg {
+    height: 28px;
+    width: auto;
+}
+
+.nav-container {
+    transition: all 0.3s ease-out;
+    /* background: linear-gradient(0deg, rgba(38, 22, 10, 0) 0%, rgb(38, 22, 10) 100%); */
+}
+
+.nav-container:hover {
+    background-color: white;
+    transition: all 0.3s ease-out;
+    /* background: none; */
+}
