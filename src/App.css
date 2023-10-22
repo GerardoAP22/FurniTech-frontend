@@ -4,6 +4,7 @@
 @import url('./styles/cart.css');
 @import url('./styles/item.css');
 @import url('./styles/signin.css');
+@import url('./styles/carousel.css');
 
 *{
   box-sizing: border-box;

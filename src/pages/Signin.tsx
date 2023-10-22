@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import React, { useState, SyntheticEvent, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {useAuth} from '../context/AuthContext'
-import Profile from './Profile'
+// import Profile from './Profile'
 
 export default function Signin() {
     const [username, setUsername] = useState<string>('');

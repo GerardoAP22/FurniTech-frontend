@@ -60,7 +60,7 @@ interface createOrderParams {
 
 export const createOrder = async ({ username, order_items }: createOrderParams) => {
     try {
-        const response = await api.post('/order-create/', {
+        const response = await apiWithCredentials.post('/order-create/', {
             username,
             order_items
         });
@@ -72,7 +72,7 @@ export const createOrder = async ({ username, order_items }: createOrderParams) 
 
 export const getOrders = async (username:string) => {
     try {
-        const response = await api.get(`orders/by-username/${username}/`);
+        const response = await apiWithCredentials.get(`orders/by-username/${username}/`);
         return response.data;
     } catch (err) {
         console.log(err);

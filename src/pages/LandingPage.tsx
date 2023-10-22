@@ -1,25 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { getAllItems } from '../api/routes';
-import Header from '../components/Header';
-import Navbar from '../components/Navbar';
-import ItemComp from '../components/ItemComp';
-import {useAuth} from '../context/AuthContext'
-import { useParams } from "react-router-dom";
+import Carousel from '../components/Carousel';
 
-interface Item {
-  id: number;
-  image: string;
-  name: string;
-  color: string;
-  price: string;
-  description: string;
-  category: string;
-  tags: string;
-  quantity:number;
-}
 
 export default function LandingPage() {
-  const [displayItems, setDisplayItems] = useState([])
+  const [displayItems, setDisplayItems] = useState([]);
 
   useEffect(() => {
     const getFeatureItems = async () => {
@@ -39,17 +24,14 @@ export default function LandingPage() {
     getFeatureItems();
   }, []);
 
+  console.log("In landing page");
+  console.log(displayItems);
+
   return (
     <div>
-      LandingPage
-      {displayItems.map((item, index) => {
-    return (
-        <ItemComp
-            key={index} 
-            item={item}
-        />
-    );
-})}
+      <h1>RECENTLY ADDED ITEMS</h1>
+      <Carousel items={displayItems} />
     </div>
-  )
+  );
+
 }
