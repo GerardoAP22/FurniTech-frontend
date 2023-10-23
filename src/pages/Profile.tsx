@@ -71,16 +71,18 @@ const Profile = () => {
 
   return (
     <div className={"profile"}>
-      <h1>Welcome, {username}!</h1>
-      {previousOrders&&previousOrders.map((order:Order)=> {
-        return (
-          <OrderTab order_items={order.order_items}/>
+
+      <h1>Welcome to Your Profile, {username}!</h1><br />
+      {previousOrders&&previousOrders.map((order)=> {
+        return(
+          <OrderTab/>
         )
       })}
       <NameChange show={changeName}/>
-      <button onClick={handleLogout}>Logout</button>
-      <button onClick={handleDelete}>Delete Profile</button>
-      <p><a onClick={setNameState} className={"changeName"}>Change E-mail address</a></p>
+      <button className='pofile-buttons' onClick={handleLogout}>Logout</button>
+      <button className='pofile-buttons'onClick={handleDelete}>Delete Profile</button>
+      <p><a className="changeName" onClick={setNameState} >Change Username</a></p>
+
     </div>
   );
 };

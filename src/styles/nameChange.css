@@ -14,3 +14,8 @@
     border:black 2px solid;
     border-radius:10px;
 }
+
+.changename:hover {
+    text-decoration: underline;
+    color: rgb(159, 116, 116);
+}
