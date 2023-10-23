@@ -62,7 +62,7 @@ export default function Cart() {
   
       const requestData = {
         email: email as string,
-        username,
+        username: username as string,
         order_items,
       };
   

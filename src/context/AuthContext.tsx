@@ -4,7 +4,7 @@ import {apiWithCredentials, apiWithoutCredentials} from '../api/apiConfig'
 // Define the shape of your context
 interface AuthContextProps {
   // authToken: string | null;
-  username: string;
+  username: string | null;
   email: string | null;
   login: (username: string, password: string) => Promise<void>;
   logout: () => Promise<void>
@@ -20,7 +20,7 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ children }) =>  {
   const [email, setEmail] = useState<string>('Guest@FurniTech.com')
-  const [username, setUsername] = useState<string>('Guest');
+  const [username, setUsername] = useState<string | null>(() => localStorage.getItem("username"));
 
   const login = async (username: string, password: string) => {
     try {
