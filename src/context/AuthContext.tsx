@@ -10,6 +10,7 @@ interface AuthContextProps {
   logout: () => Promise<void>
   deleteUser: () => Promise<void>
   updateUser: (username:string) => Promise<void>
+  signup: (username:string, password:string, email:string) => Promise<void>
 }
 
 interface AuthProviderProps {
@@ -19,7 +20,7 @@ interface AuthProviderProps {
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ children }) =>  {
-  const [email, setEmail] = useState<string>('Guest@FurniTech.com')
+  const [email, setEmail] = useState<string|null>(()=> localStorage.getItem('email'))
   const [username, setUsername] = useState<string | null>(() => localStorage.getItem("username"));
 
   const login = async (username: string, password: string) => {
@@ -36,6 +37,7 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
         setUsername(response.data.username); 
         setEmail(response.data.email)
         localStorage.setItem('csrfToken', response.data.csrfToken)
+        localStorage.setItem('email', response.data.email)
         localStorage.setItem('username', response.data.username)
       } else {
         console.error('Login failed:', response.data);
@@ -70,6 +72,27 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
         console.error('An error occurred during the logout process:', error);
         throw error;
     }
+}
+
+  const signup = async (username:string, email:string, password:string) => {
+  try{
+      const response = await apiWithoutCredentials.post('/signup/', {
+          username,
+          password,
+          email
+      })
+
+      if(response){
+          setUsername(response.data.username)
+          setEmail(response.data.email)
+          localStorage.setItem('username',response.data.username)
+          localStorage.setItem('csrfToken', response.data.csrfToken)
+          localStorage.setItem('email', response.data.email)
+      }
+      return response.data
+  }catch(error){
+      console.log(error)
+  }
 }
 
   const updateUser = async (email:string) => {
@@ -114,7 +137,7 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
   }
 
   return (
-    <AuthContext.Provider value={{ username, login, logout, deleteUser, updateUser, email }}>
+    <AuthContext.Provider value={{ username, login, logout, deleteUser, updateUser, signup, email }}>
       {children}
     </AuthContext.Provider>
   );

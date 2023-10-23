@@ -28,6 +28,7 @@ export default function NameChange({show}:Show) {
         try{
             const response = await updateUser(newUsername)
             console.log(response)
+            setDisplay('hidden')
         }catch(error){
             console.log(error)
         }

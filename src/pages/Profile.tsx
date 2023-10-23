@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import {useAuth} from '../context/AuthContext'
@@ -77,10 +76,11 @@ const Profile = () => {
           <OrderTab order_items={order.order_items}/>
         )
       })}
-      <NameChange show={changeName}/>
-      <button onClick={handleLogout}>Logout</button>
-      <button onClick={handleDelete}>Delete Profile</button>
-      <p><a onClick={setNameState} className={"changeName"}>Change E-mail address</a></p>
+      <NameChange show={changeName}/> <br/>
+      <button className='profile-buttons' onClick={handleLogout}>Logout</button>
+      <button className='profile-buttons' onClick={handleDelete}>Delete Profile</button>
+      
+      <p><a onClick={setNameState} className="changeName">Change E-mail address</a></p>
     </div>
   );
 };

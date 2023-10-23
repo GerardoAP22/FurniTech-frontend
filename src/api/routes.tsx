@@ -10,30 +10,6 @@ export const getAllItems = async () => {
     }
 }
 
-interface signUpParams {
-    username:string;
-    password:string;
-    email:string;
-}
-
-export const signup = async ({username, email, password} : signUpParams) => {
-    try{
-        const response = await apiWithoutCredentials.post('/signup/', {
-            username,
-            password,
-            email
-        })
-
-        if(response){
-            localStorage.setItem('username',response.data.username)
-            localStorage.setItem('email', response.data.email)
-        }
-        return response.data
-    }catch(error){
-        console.log(error)
-    }
-}
-
 interface createOrderParams {
     email: string;
     username: string;

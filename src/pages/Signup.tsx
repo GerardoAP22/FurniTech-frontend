@@ -1,6 +1,6 @@
 import React, { useState, SyntheticEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signup } from '../api/routes';
+import { useAuth } from '../context/AuthContext';
 
 export default function Signup() {
     const [username, setUsername] = useState<string>('');
@@ -8,6 +8,7 @@ export default function Signup() {
     const [email, setEmail] = useState<string>('');
     const [message, setMessage] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
+    const {signup} = useAuth()
     const navigate = useNavigate();
 
     const handleSubmit = async (evt: SyntheticEvent) => {
@@ -15,12 +16,12 @@ export default function Signup() {
         setLoading(true);
         try {
             console.log(username, email, password);
-            const response = await signup({username, email, password});
+            const response = await signup(username, email, password);
             console.log(response);
 
             setMessage('Successfully created a new account! Redirecting...');
             setTimeout(() => {
-                navigate('/signin');
+                navigate(`/${username}`);
             }, 1500);
         } catch (err: any) {
             setMessage(err.message);
