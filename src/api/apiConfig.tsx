@@ -7,9 +7,7 @@ if (!process.env.REACT_APP_LOCALSTORAGE_KEY) {
 
 const LOCALSTORAGE_KEY = process.env.REACT_APP_LOCALSTORAGE_KEY;
 
-const API_URL = process.env.REACT_APP_ENVIRONMENT === "development"
-  ? process.env.REACT_APP_LOCAL_API_URL
-  : process.env.REACT_APP_DEPLOYED_API_URL;
+const API_URL =  process.env.REACT_APP_DEPLOYED_API_URL;
 
 if (!process.env.REACT_APP_LOCAL_API_URL || !process.env.REACT_APP_DEPLOYED_API_URL) {
   throw new Error(API_URL);

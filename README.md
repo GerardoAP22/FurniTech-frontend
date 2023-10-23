@@ -1,27 +1,32 @@
 
 # Furnitech
 
-RH Furniture is an application designed to facilitate the exploration and purchase of a wide array of furniture products. Users have the capability to establish an account, peruse an extensive inventory of furniture items, and conveniently add their selections to the shopping cart for either immediate or deferred acquisition.
+FurniTech is an application designed to facilitate the exploration and purchase of a wide array of furniture products. Users have the capability to establish an account, peruse an extensive inventory of furniture items, and conveniently add their selections to the shopping cart for either immediate or deferred acquisition. Inspiration from RH furniture's eccomerce website.
 
 ## Wire Frames
 
 **App Home page**
+
 ![image](<Homepage.png>)
 
 **Login Page**
+
 ![image](<Loginpage.png>)
 
 **Show page**
+
 ![image](<Showpage.png>)
 
 **Detail page**
+
 ![image](<Detailpage.png>)
 
 **Cart page**
+
 ![image](<Cart.png>)
 
 ## How to work on this App
-this app let users can create their own account. before they sign in account, they only can view for those items. They cannot add those items to the cart. This furniture app show 4 category for home-furnishings. user also can view item's detail. User's shopping cart will show add items ,quantity and price. also use can check total price for this order. User can remove items form their own cart and add more stuff on that order.
+This app let users can create their own account. Before they sign in to an existing account or sign up, users can only view the catalog of available items. They cannot add those items to the cart. This furniture app shows 4 categories  for home-furnishings. User also can view item's details that include dimension, color, price, and about info. User's shopping cart will show selected items image, quantity and price. User can remove items from their own cart and add more furniture on that order.
 
 ## Technologies Used
 
@@ -86,8 +91,8 @@ this app let users can create their own account. before they sign in account, th
 - As a User, I want to be able to delete my account.
 - As a User, I want to receive an error message if I enter the wrong credentials.
 - As a User, I want to have a profile page where I am able to see my previous orders.
-- As a User, I want to be able to browse a specific section of furniture/items (Bathroom, Bedroom, Kitchen) to see available products.
-- As a User, I want to be able to click on an item and see its details.
+- As a User, I want to be able to browse a specific section of furniture/items (furnoture, decor, lighting, linens) to see available products.
+- As a User, I want to be able to click on an item and see it's details.
 - As a User, I want to be able to add the item to my cart.
 - As a User, I want to be able to remove an item from my cart.
 - As a User, I want to be able to update the quantity of an item in my cart.
@@ -100,7 +105,7 @@ this app let users can create their own account. before they sign in account, th
 ## Team Expectations
 
 #### Front End Developers
-- Gerardo Arriaza Pantaleon , Jasmine Williams & Axel Witt  
+- Gerardo Arriaza Pantaleon , Jasmine Williams, & Axel Witt  
 
 #### Backend Developers
 - Guoxing Liu & Felix Carela 
