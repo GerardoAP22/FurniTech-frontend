@@ -9,7 +9,7 @@ function Header() {
   const [link, updateLink] = useState<string>('/signin')
 
   useEffect(() => {
-    if(username!=='Guest'){
+    if(username!==null){
       updateLink(`/${username}`)
     }else{
       updateLink('/signin')
