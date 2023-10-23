@@ -11,7 +11,7 @@ interface Show {
 export default function NameChange({show}:Show) {
     const [display, setDisplay] = useState<string>('hidden')
     const setNewUsername = useRef<HTMLInputElement>(null)
-    const {username, updateUser} = useAuth()
+    const {username, email, updateUser} = useAuth()
 
     useEffect(()=>{
         if(!show){
@@ -37,9 +37,9 @@ export default function NameChange({show}:Show) {
 
   return (
     <div className={display + ' ' + 'element'} >
-        <p>{username}</p>
+        <p>Current E-mail: {email}</p>
         <input type="text" ref={setNewUsername} />
-        <button onClick={onSubmit}>Update Username</button>
+        <button onClick={onSubmit}>Update E-mail</button>
     </div>
   )
 }

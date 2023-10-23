@@ -35,15 +35,17 @@ export const signup = async ({username, email, password} : signUpParams) => {
 }
 
 interface createOrderParams {
+    email: string;
     username: string;
     order_items: { item: number; quantity: number }[];
 }
 
 
-export const createOrder = async ({ username, order_items }: createOrderParams) => {
+export const createOrder = async ({ email, username, order_items }: createOrderParams) => {
     const csrfToken = localStorage.getItem('csrfToken')
     try {
         const response = await apiWithCredentials.post('/order-create/', {
+            email: email as string,
             username,
             order_items
         }, {

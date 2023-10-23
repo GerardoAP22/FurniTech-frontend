@@ -19,7 +19,7 @@ interface AuthProviderProps {
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ children }) =>  {
-  const [email, setEmail] = useState<string | null>(null)
+  const [email, setEmail] = useState<string>('Guest@FurniTech.com')
   const [username, setUsername] = useState<string>('Guest');
 
   const login = async (username: string, password: string) => {
@@ -60,7 +60,7 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
             localStorage.removeItem('username')
             localStorage.removeItem('cartItems')
             setUsername('Guest')
-            setEmail(null)
+            setEmail('Guest@FurniTech.com')
             return response.data;
         } else {
             console.error(`Unexpected response code: ${response.status}`);
@@ -72,17 +72,17 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
     }
 }
 
-  const updateUser = async (username:string) => {
+  const updateUser = async (email:string) => {
     const csrfToken = localStorage.getItem('csrfToken')
     try{
-      const response = await apiWithCredentials.put('/update-username/', {username}, {
+      const response = await apiWithCredentials.put('/update-email/', {email}, {
         withCredentials:true,
         headers:{
           'X-CSRFToken' : csrfToken
         }
       })
       if(response.status===200){
-        setUsername(response.data.new_username)
+        setEmail(response.data.new_email)
       }
       console.log(response)
     }catch(error){
@@ -104,7 +104,7 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
         localStorage.removeItem('username')
         localStorage.removeItem('cartItems')
         setUsername('Guest')
-        setEmail(null)
+        setEmail('Guest@FurniTech.com')
       }
       console.log('USER HAS BEEN EVICERATED')
 

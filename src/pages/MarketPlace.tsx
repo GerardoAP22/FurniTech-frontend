@@ -71,12 +71,10 @@ const MarketPlace: React.FC<Props> = ({lighting, furniture, decor, linens}) => {
 
   return (
     <div className='items-container'>
-          {/* <div className='item-container-description'> */}
 
         {filterItem.map((item, index) => (
           <ItemComp key={index} item={item} />
         ))}
-        {/* </div> */}
 
       </div>
   );

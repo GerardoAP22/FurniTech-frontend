@@ -1,12 +1,23 @@
-import React from 'react'
+import React from 'react';
 
-interface Order{
-    id:number;
-    quantity:number;
+interface Item {
+  item: string;
+  quantity: number; 
 }
 
-export default function OrderTab() {
+interface OrderTabProps {
+  order_items: Item[];
+}
+
+const OrderTab: React.FC<OrderTabProps> = ({ order_items }) => {
+  // You can now use order_items here
   return (
-    <div></div>
-  )
-}
+    <div>
+      {order_items.map((item, index) => (
+        <p key={index}>{item.item} - {item.quantity}</p>
+      ))}
+    </div>
+  );
+};
+
+export default OrderTab;
