@@ -49,6 +49,7 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
 
   const logout = async () => {
     const csrfToken = localStorage.getItem('csrfToken')
+    console.log(csrfToken)
     try {
         const response = await apiWithCredentials.post('/logout/', {}, { 
             headers: {
@@ -61,8 +62,8 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
             localStorage.removeItem('csrfToken')
             localStorage.removeItem('username')
             localStorage.removeItem('cartItems')
-            setUsername('Guest')
-            setEmail('Guest@FurniTech.com')
+            setUsername(null)
+            setEmail(null)
             return response.data;
         } else {
             console.error(`Unexpected response code: ${response.status}`);
